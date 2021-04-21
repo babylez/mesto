@@ -32,8 +32,6 @@
 
 @import url(../blocks/popup/popup.css);
 
-@import url(../blocks/popup/_is-opened/popup_is-opened.css);
-
 @import url(../blocks/popup/__conteiner/popup__conteiner.css);
 
 @import url(../blocks/popup/__close/popup__close.css);
@@ -71,8 +69,3 @@
 @import url(../blocks/list/list.css);
 
 @import url(../blocks/rotation/rotation.css);
-
-.profile-text {
-  display: flex;
-  flex-direction: row;
-}
