@@ -1,0 +1,15 @@
+.page__container {
+  margin: 0 200px;
+}
+
+@media (max-width: 1200px) {
+  .page__container {
+    margin: 0 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .page__container {
+    margin: 0 19px;
+  }
+}

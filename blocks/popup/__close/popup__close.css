@@ -1,0 +1,20 @@
+.popup__close {
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.5s linear;
+  /*position: fixed;
+  left: 875px;
+  top: 175px;*/
+  background: url(../../../images/крестик.png) no-repeat center;
+  align-self: flex-end;
+  margin-right: -35px;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+  outline: none;
+}
+
+.popup__close:visited {
+  outline: none;
+}

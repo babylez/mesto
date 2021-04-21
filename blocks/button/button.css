@@ -1,0 +1,17 @@
+.button {
+  border: none;
+  padding: 0;
+}
+
+.button:hover {
+  cursor: pointer;
+  outline: none;
+}
+
+.button:visited {
+  outline: none;
+}
+
+.button:focus {
+  outline: none;
+}

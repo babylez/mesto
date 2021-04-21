@@ -1,0 +1,21 @@
+.element__button {
+  width: 22px;
+  height: 19px;
+  padding: 0;
+  background-image: url(../../../images/лайк.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 30px 20px 30px 0;
+  transition: opacity 0.5s linear;
+}
+
+.element__button:hover {
+  opacity: 0.5;
+}
+
+.element__button:active {
+  background-image: url(../../../images/черный\ лайк.png);
+  outline: none;
+  cursor: pointer;
+  opacity: 1;
+}

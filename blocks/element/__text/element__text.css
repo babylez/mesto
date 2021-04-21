@@ -1,0 +1,7 @@
+.element__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  margin: 0;
+}

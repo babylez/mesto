@@ -1,0 +1,12 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+.rotation:hover {
+  animation: rotation 10s linear infinite;
+}
