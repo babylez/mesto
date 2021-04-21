@@ -4,10 +4,12 @@
   justify-content: space-between;
   margin-top: 40px;
   position: relative;
+  margin-bottom: 25px;
 }
 
 @media (max-width: 700px) {
   .profile {
     flex-direction: column;
+    margin-bottom: 36px;
   }
 }

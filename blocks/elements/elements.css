@@ -1,13 +1,5 @@
 .elements {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-columns: repeat(auto-fill, 282px);*/
+  grid-template-columns: repeat(auto-fill, 282px);
   gap: 20px 17px;
-  margin-top: 25px;
-}
-
-@media (max-width: 400px) {
-  .elements {
-    grid-template-columns: 1fr;
-  }
 }
