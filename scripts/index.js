@@ -1,9 +1,9 @@
 const openPopupButton = document.querySelector('.profile__edit');
-const popup = document.querySelector('.popup__is-opened');
+const popup = document.querySelector('.popup_type_hidden');
 const closePopupButton = document.querySelector('.popup__close')
 
 function togglePopup(event) {
-  popup.classList.toggle('popup__is-opened');
+  popup.classList.toggle('popup_type_hidden');
 };
 
 openPopupButton.addEventListener('click', togglePopup);
