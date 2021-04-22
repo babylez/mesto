@@ -66,6 +66,8 @@
 
 @import url(../blocks/profile/__button-plus/profile__button-plus.css);
 
+@import url(../blocks/profile/__text/profile__text.css);
+
 @import url(../blocks/list/list.css);
 
 @import url(../blocks/rotation/rotation.css);
