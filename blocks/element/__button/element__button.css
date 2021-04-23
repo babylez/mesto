@@ -2,7 +2,7 @@
   width: 22px;
   height: 19px;
   padding: 0;
-  background-image: url(../../../images/лайк.png);
+  background-image: url(../../../images/like.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   margin: 30px 20px 30px 0;
@@ -14,7 +14,7 @@
 }
 
 .element__button:active {
-  background-image: url(../../../images/черный\ лайк.png);
+  background-image: url(../../../images/likedark.svg);
   outline: none;
   cursor: pointer;
   opacity: 1;

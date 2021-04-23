@@ -1,8 +1,12 @@
 .profile__job {
+  max-width: 400px;
   margin: 16px 0 0;
   font-family: Inter, Arial, sans-serif;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
@@ -10,5 +14,6 @@
     font-size: 14px;
     line-height: 17px;
     margin-top: 14px;
+    max-width: 282px;
   }
 }

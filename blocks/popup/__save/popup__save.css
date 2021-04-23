@@ -7,6 +7,7 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  border-radius: 2px;
 }
 
 .popup__save:hover {
@@ -18,5 +19,6 @@
   .popup__save {
     font-size: 14px;
     line-height: 17px;
+    margin-top: 45px;
   }
 }

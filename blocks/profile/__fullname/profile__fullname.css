@@ -1,14 +1,20 @@
 .profile__fullname {
+  max-width: 400px;
   margin: 0 18px 0 0;
   font-family: Inter, Arial, sans-serif;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
   .profile__fullname {
+    margin-right: 15px;
     font-size: 27px;
     line-height: 33px;
+    max-width: 250px;
   }
 }

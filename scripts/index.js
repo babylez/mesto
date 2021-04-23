@@ -1,33 +1,37 @@
-const openPopupButton = document.querySelector('.profile__edit');
-const popup = document.querySelector('.popup_type_hidden');
-const closePopupButton = document.querySelector('.popup__close')
 
-function togglePopup(event) {
-  popup.classList.toggle('popup_type_hidden');
-};
+let openPopupButton = document.querySelector('.profile__edit');
+let popup = document.querySelector('.popup_opened');
+let closePopupButton = document.querySelector('.popup__close');
 
-openPopupButton.addEventListener('click', togglePopup);
-
-closePopupButton.addEventListener('click', togglePopup)
-
-popup.addEventListener('click', function (event) {
-  if (event.target === event.currentTarget) {
-    togglePopup(event);
-  }
-})
-
-
-let popupButtonSave = document.querySelector('.popup__save');
 let profileName = document.querySelector('.profile__fullname');
 let profilejob = document.querySelector('.profile__job');
 
-function saveInfo() {
-  togglePopup();
-  let nameInput = document.querySelector('.popup__full-name').value;
-  profileName.innerHTML = nameInput;
+let nameInput = document.querySelector('.popup_type_full-name');
+let jobInput = document.querySelector('.popup_type_job');
 
-  let jobInput = document.querySelector('.popup__job').value;
-  profilejob.innerHTML = jobInput;
+let popupButtonSave = document.querySelector('.popup__save');
+
+
+function openPopup() {
+  popup.classList.toggle('popup_opened');
+  popup.classList.contains('.popup_opened');
+};
+
+function closePopup() {
+  popup.classList.toggle('popup_opened');
+  popup.classList.contains('.popup_opened');
+};
+
+
+function saveInfo(event) {
+  event.preventDefault();
+  profileName.textContent = nameInput.value;
+  profilejob.textContent = jobInput.value;
+  closePopup();
 }
+
+
+openPopupButton.addEventListener('click', openPopup);
+closePopupButton.addEventListener('click', closePopup,);
 
 popupButtonSave.addEventListener('click', saveInfo);

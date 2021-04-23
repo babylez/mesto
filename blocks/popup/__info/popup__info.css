@@ -1,10 +1,16 @@
-.popup__full-name {
+.popup__info {
   font-family: Inter, Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  margin: 54px 0 30px;
+  margin-bottom: 48px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 0 13px;
+}
+
+@media (max-width: 700px) {
+  .popup__info:last-of-type {
+    margin-bottom: 0;
+  }
 }
