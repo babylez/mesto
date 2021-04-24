@@ -81,14 +81,15 @@
   <footer class="footer page__container">
     <p class="footer__author" lang="en">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup popup_opened">
+  <div class="popup">
     <div class="popup__conteiner">
       <button type="button" class="popup__close rotation button"></button>
       <div class="popup__content">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="#" method="POST" name="form" class="popup__form">
-          <input type="text" value="Жак-Ив Кусто" class="popup__info popup__info_type_full-name">
-          <input type="text" value="Исследователь океана" class="popup__info popup__info_type_job">
+          <input name="text" type="text" value="" class="popup__info popup__info_type_full-name">
+          <input name="text" type="text" value="" class="popup__info popup__info_type_job">
+          <!--и тут тоже _type - это ключ, _job- значение, у меня неправильно написаны сами ключ-знаечние, а само постороение модификатора правильное?-->
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
