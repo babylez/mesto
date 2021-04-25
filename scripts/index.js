@@ -14,16 +14,14 @@ let form = document.querySelector('.popup')
 
 
 function openPopup() {
-  if (popup.classList.contains !== ('.popup_opened')) {
-    popup.classList.add('popup_opened');
-  }
-};
+  popup.classList.add('popup_opened');
+  profileName.textContent = nameInput.value;
+  profilejob.textContent = jobInput.value;
+}
 
 
 function closePopup() {
-  if (popup.classList.contains('popup_opened')) {
-    popup.classList.remove('popup_opened');
-  }
+  popup.classList.remove('popup_opened');
 }
 
 
