@@ -10,11 +10,15 @@
 
 @import url(../blocks/element/__button/element__button.css);
 
+@import url(../blocks/element/__button/_type/element__button_type_active.css);
+
 @import url(../blocks/element/__image/element__image.css);
 
 @import url(../blocks/element/__text/element__text.css);
 
 @import url(../blocks/element/__title/element__title.css);
+
+@import url(../blocks/element/__delet/element__delet.css);
 
 @import url(../blocks/elements/elements.css);
 
@@ -69,3 +73,5 @@
 @import url(../blocks/profile/__job/profile__job.css);
 
 @import url(../blocks/rotation/rotation.css);
+
+@import url(../blocks/conteiner-img/conteiner-img.css);

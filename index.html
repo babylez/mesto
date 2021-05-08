@@ -28,53 +28,21 @@
           <button class="button profile__edit" type="button"></button>
         </div>
       </div>
-      <button class="profile__button button" type="button"> <img class="profile__button-plus" src="./images/plus.svg"
+      <button class="button profile__button" type="button"> <img class="profile__button-plus" src="./images/plus.svg"
           alt="плюс">
       </button>
     </section>
     <section class="elements">
-      <div class="element">
-        <img class="element__image" src="./images/baikal.jpg" alt="Байкал">
-        <div class="element__text">
-          <h2 class="element__title">Байкал</h2>
-          <button class="element__button button" type="button"></button>
+      <template id="card-template">
+        <div class="element">
+          <button class="button element__delet" type="button"></button>
+          <img class="element__image" src="" alt="">
+          <div class="element__text">
+            <h2 class="element__title"> </h2>
+            <button class="element__button button" type="button"></button>
+          </div>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__image" src="./images/elbrus.png" alt="Эльбрус">
-        <div class="element__text">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__button button" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__image" src="./images/krasnodar.jpg" alt="Краснодар">
-        <div class="element__text">
-          <h2 class="element__title">Краснодарский край</h2>
-          <button class="element__button button" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__image" src="./images/karachaevsk.png" alt="Карачаево-Черкессия">
-        <div class="element__text">
-          <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button class="element__button button" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__image" src="./images/ctavropol.jpg" alt="Ставрополье">
-        <div class="element__text">
-          <h2 class="element__title">ставропольский край</h2>
-          <button class="element__button button" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__image" src="./images/dombay.png" alt="домбай">
-        <div class="element__text">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__button button" type="button"></button>
-        </div>
-      </div>
+      </template>
     </section>
   </main>
 
@@ -89,12 +57,33 @@
         <form action="#" method="POST" name="form" class="popup__form">
           <input name="text" type="text" value="" class="popup__info popup__info_type_full-name">
           <input name="text" type="text" value="" class="popup__info popup__info_type_job">
-          <!--и тут тоже _type - это ключ, _job- значение, у меня неправильно написаны сами ключ-знаечние, а само постороение модификатора правильное?-->
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
     </div>
   </div>
+  <div class="popup popup_content_img">
+    <div class="popup__conteiner popup__conteiner_content_img">
+      <button type="button" class="popup__close popup__close_content_img rotation button"></button>
+      <div class="popup__content popup__content_content_img">
+        <h2 class="popup__title popup__title_content_img">Новое место</h2>
+        <form action="#" method="POST" name="form" class="popup__form popup__form_content_img">
+          <input name="text" type="text" value="" placeholder="название" class="popup__info popup__info_type_name-img">
+          <input name="text" type="text" value="" placeholder="ссылка на картинку"
+            class="popup__info popup__info_type_link">
+          <button type="submit" class="popup__save popup__save_content_img">Создать</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <figure class="popup popup-img">
+    <div class="popup__conteiner conteiner-img">
+      <button type="button" class="popup__close button popup__close-img"></button>
+      <img class="popup-img__img" src="" alt="">
+      <figcaption class="popup-img__caption"></figcaption>
+    </div>
+  </figure>
   <script src="./scripts/index.js"></script>
 </body>
 
