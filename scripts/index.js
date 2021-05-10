@@ -94,11 +94,11 @@ const imgCaption = document.querySelector('.popup-img__caption');
 const picture = document.querySelector('.popup-img__img');
 const popupBigImg = document.querySelector('.popup-img')
 
-function openPopupImage() {
+function openPopupImage(event) {
   openPopup(popupBigImg);
-  picture.src = this.src;
-  picture.alt = this.alt;
-  imgCaption.textContent = this.alt
+  picture.src = event.target.src;
+  picture.alt = event.target.alt;
+  imgCaption.textContent = event.target.alt
 }
 
 
