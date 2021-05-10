@@ -16,12 +16,10 @@ function openPopup(popup) {
 }
 
 function closePopup(event) {
-  event.target.closest('.popup').classList.remove('popup_opened');
+  event.target.closest('.popup').classList.remove('popup_opened')
 }
 
-closePopupButton.forEach(el =>
-  el.addEventListener('click', closePopup)
-)
+
 
 function createPopupProfile() {
   openPopup(popupProfile);
@@ -33,15 +31,16 @@ function saveInfo(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup();
+  closePopup(event);
 }
 
+closePopupButton.forEach(el =>
+  el.addEventListener('click', closePopup)
+)
+
 openPopupButton.addEventListener('click', createPopupProfile);
-//closePopupButton.addEventListener('click', closePopup);
 
 popup.addEventListener('submit', saveInfo);
-
-
 
 // Массив карточек
 
@@ -91,24 +90,23 @@ initialCards.forEach(function (actualCard) {
 })
 
 //попап с картинкой 
-const bigImg = document.querySelector('.popup-img');
 const imgCaption = document.querySelector('.popup-img__caption');
 const picture = document.querySelector('.popup-img__img');
+const popupBigImg = document.querySelector('.popup-img')
 
 function openPopupImage() {
-  bigImg.classList.add('popup_opened');
+  openPopup(popupBigImg);
   picture.src = this.src;
-  picture.alt = this.value;
-  imgCaption.textContent = picture.alt = this.value;
-  console.log(picture.parentElement)
+  picture.alt = this.alt;
+  imgCaption.textContent = this.alt
 }
+
 
 document.querySelectorAll('.element__image').forEach(el =>
   el.addEventListener('click', openPopupImage))
 
 
 //закрытие попапа с картинкой
-const popupBigImg = document.querySelector('.popup-img');
 
 document.querySelector('.popup__close-img').addEventListener('click', () => {
   popupBigImg.classList.remove('popup_opened')
@@ -116,12 +114,12 @@ document.querySelector('.popup__close-img').addEventListener('click', () => {
 
 
 //лайк
-function like(event) {
+function likeCard(event) {
   event.target.classList.toggle('element__button_type_active')
 }
 
 document.querySelectorAll('.element__button').forEach(el =>
-  el.addEventListener('click', like)
+  el.addEventListener('click', likeCard)
 )
 
 //удаление карточек
@@ -151,33 +149,32 @@ buttonImg.addEventListener('click', openPopupImg);
 
 closePopupButtonImg.addEventListener('click', closePopup);
 
-
-
-
 //добавить карточку
 
+const formImg = document.querySelector('.popup__form_content_img')
 
 const linkInput = document.querySelector('.popup__info_type_link');
 
 const nameImgInput = document.querySelector('.popup__info_type_name-img');
 
 function addCard() {
-
   const card = cardTemplate.querySelector('.element').cloneNode(true);
   card.querySelector('.element__image').src = linkInput.value;
   card.querySelector('.element__title').textContent = nameImgInput.value;
-  //card.querySelector('.element__delet').addEventListener('click', deleteItem);
-  //card.querySelector('.element__button').addEventListener('click', like);
-  //card.querySelector('.element__image').addEventListener('click', openPopupImage);
+  card.querySelector('.element__image').alt = nameImgInput.value;
+  card.querySelector('.element__delet').addEventListener('click', deleteItem);
+  card.querySelector('.element__button').addEventListener('click', likeCard);
+  card.querySelector('.element__image').addEventListener('click', openPopupImage);
   return (card)
 }
 
-document.querySelectorAll('element').forEach(function addCards(newCard, event) {
+function addCards(event) {
   event.preventDefault();
-  elements.append(addCard(newCard))
-  closePopupImg();
+  elements.prepend(addCard());
+  closePopup(event);
   linkInput.value = '';
   nameImgInput.value = '';
-})
+}
 
-popupImg.addEventListener('submit', addCards);
+
+formImg.addEventListener('submit', addCards);
