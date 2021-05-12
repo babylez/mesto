@@ -1,22 +1,4 @@
 .popup-img__img {
   max-height: 50vh;
+  max-width: 80vw;
 }
-
-/*@media (max-width: 900px) {
-  .popup-img__img {
-    max-width: 500px;
-  }
-}
-
-@media (max-width: 530px) {
-  .popup-img__img {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 330px) {
-  .popup-img__img {
-    max-width: 240px;
-  }
-}
-*/
