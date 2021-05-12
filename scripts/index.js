@@ -86,9 +86,8 @@ function saveInfo(event) {
   popupProfile.classList.remove('popup_opened');
 }
 
-
-// картчоки Из массива
-
+// добавить картчоки из массива
+//const cards = cardTemplate.querySelectorAll('.element').forEach(el => elements.append(el.cloneNode(true)))
 function createCard({ link, name }) {
   const cards = cardTemplate.querySelector('.element').cloneNode(true);
   cards.querySelector('.element__image').src = link;
@@ -113,7 +112,6 @@ function openPopupImage(event) {
   imgCaption.textContent = event.target.alt
 }
 
-
 //лайк
 function likeCard(event) {
   event.target.classList.toggle('element__button_type_active')
@@ -131,20 +129,13 @@ function openPopupImg() {
   openPopup(popupImg);
 }
 
-//добавить карточку
+//создать карточку из попапа
 
 function addCard() {
-  createCard;
-  const card = cardTemplate.querySelector('.element').cloneNode(true);
-  card.querySelector('.element__image').src = linkInput.value;
-  card.querySelector('.element__title').textContent = nameImgInput.value;
-  card.querySelector('.element__image').alt = nameImgInput.value;
-  /*card.querySelector('.element__delet').addEventListener('click', deleteItem);
-  card.querySelector('.element__button').addEventListener('click', likeCard);
-  card.querySelector('.element__image').addEventListener('click', openPopupImage);*/
-  return card
+  return createCard({ link: linkInput.value, name: nameImgInput.value });
 }
 
+// добавить карточки
 function addCards(event) {
   event.preventDefault();
   elements.prepend(addCard());
@@ -153,8 +144,9 @@ function addCards(event) {
   nameImgInput.value = '';
 }
 
-openPopupButton.addEventListener('click', createPopupProfile);
+// слущальщики
 
+openPopupButton.addEventListener('click', createPopupProfile);
 
 buttonImg.addEventListener('click', openPopupImg);
 
