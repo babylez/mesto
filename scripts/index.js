@@ -23,7 +23,6 @@ const popupBigImg = document.querySelector('.popup-img');
 const buttonImg = document.querySelector('.profile__button')
 
 const popupImg = document.querySelector('.popup_content_img');
-const closePopupButtonImg = document.querySelector('.popup__close_content_img');
 
 
 const formImg = document.querySelector('.popup__form_content_img');
@@ -66,9 +65,12 @@ function openPopup(popup) {
   popup.classList.add('popup_opened')
 }
 
-closePopupButtons.forEach(el => el.addEventListener('click', function closePopup() {
-  el.closest('.popup').classList.remove('popup_opened')
-}))
+function closePopup(popup) {
+  popup.classList.remove('popup_opened')
+}
+
+closePopupButtons.forEach(el => el.addEventListener('click', () =>
+  closePopup(el.closest('.popup'))));
 
 
 //попап профиль 
@@ -83,7 +85,7 @@ function saveInfo(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  popupProfile.classList.remove('popup_opened');
+  closePopup(popupProfile)
 }
 
 // добавить картчоки из массива
@@ -106,10 +108,10 @@ initialCards.forEach(function (actualCard) {
 //попап с картинкой 
 
 function openPopupImage(event) {
-  openPopup(popupBigImg);
   picture.src = event.target.src;
   picture.alt = event.target.alt;
   imgCaption.textContent = event.target.alt
+  openPopup(popupBigImg);
 }
 
 //лайк
@@ -139,7 +141,7 @@ function addCard() {
 function addCards(event) {
   event.preventDefault();
   elements.prepend(addCard());
-  popupImg.classList.remove('popup_opened')
+  closePopup(popupImg)
   linkInput.value = '';
   nameImgInput.value = '';
 }
