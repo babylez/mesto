@@ -1,6 +1,19 @@
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__info',
+  submitButtonSelector: '.popup__save',
+  inputErrorClass: 'popup__info_type_error',
+  errorClass: 'popup__info-error_active'
+}
+
+enableValidation(config);
+
+const popupList = document.querySelectorAll('.popup');
+
+const popup = document.querySelector('.popup');
 
 const openPopupButton = document.querySelector('.profile__edit');
-const popup = document.querySelector('.popup');
+
 
 const closePopupButtons = document.querySelectorAll('.popup__close');
 
@@ -59,19 +72,36 @@ const initialCards = [
   }
 ];
 
-// Открытие закрытие всех попапов
-
+// Открытие всех попапов
 function openPopup(popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
+  document.addEventListener('keyup', handleEsc);
+}
+// закрытие попапов
+function closePopup(Popup) {
+  Popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', handleEsc);
 }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened')
+//закрытие по кнопке esc
+function handleEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupActive = document.querySelector('.popup_opened');
+    closePopup(popupActive);
+  }
 }
+
+// закрытие попапов при клике на оверлей
+popupList.forEach((activePopup) => {
+  activePopup.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+      closePopup(activePopup);
+    }
+  })
+})
 
 closePopupButtons.forEach(el => el.addEventListener('click', () =>
   closePopup(el.closest('.popup'))));
-
 
 //попап профиль 
 
@@ -146,7 +176,7 @@ function addCards(event) {
   nameImgInput.value = '';
 }
 
-// слущальщики
+// слушальщики
 
 openPopupButton.addEventListener('click', createPopupProfile);
 
