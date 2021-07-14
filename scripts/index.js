@@ -10,7 +10,7 @@ enableValidation(config);
 
 const popupList = document.querySelectorAll('.popup');
 
-const popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup-profile');
 
 const openPopupButton = document.querySelector('.profile__edit');
 
@@ -119,16 +119,17 @@ function saveInfo(event) {
 }
 
 // добавить картчоки из массива
-//const cards = cardTemplate.querySelectorAll('.element').forEach(el => elements.append(el.cloneNode(true)))
+
 function createCard({ link, name }) {
-  const cards = cardTemplate.querySelector('.element').cloneNode(true);
-  cards.querySelector('.element__image').src = link;
-  cards.querySelector('.element__image').alt = name;
-  cards.querySelector('.element__title').textContent = name;
-  cards.querySelector('.element__image').addEventListener('click', openPopupImage);
-  cards.querySelector('.element__delet').addEventListener('click', deleteItem);
-  cards.querySelector('.element__button').addEventListener('click', likeCard);
-  return cards
+  const card = cardTemplate.querySelector('.element').cloneNode(true);
+  const cardImage = card.querySelector('.element__image');
+  cardImage.src = link;
+  cardImage.alt = name;
+  card.querySelector('.element__title').textContent = name;
+  cardImage.addEventListener('click', () => openPopupImage(link, name));
+  card.querySelector('.element__delet').addEventListener('click', deleteItem);
+  card.querySelector('.element__button').addEventListener('click', likeCard);
+  return card
 }
 
 initialCards.forEach(function (actualCard) {
@@ -137,16 +138,16 @@ initialCards.forEach(function (actualCard) {
 
 //попап с картинкой 
 
-function openPopupImage(event) {
-  picture.src = event.target.src;
-  picture.alt = event.target.alt;
-  imgCaption.textContent = event.target.alt
+function openPopupImage(link, name) {
+  picture.src = link;
+  picture.alt = name;
+  imgCaption.textContent = name;
   openPopup(popupBigImg);
 }
 
 //лайк
 function likeCard(event) {
-  event.target.classList.toggle('element__button_type_active')
+  event.target.classList.toggle('element__button_type_active');
 }
 
 //удаление карточек
@@ -156,8 +157,8 @@ function deleteItem(evt) {
 }
 
 //кнопка плюс кнопка закрыть
-
 function openPopupImg() {
+  document.querySelector('.popup__save_content_img').disabled = true;
   openPopup(popupImg);
 }
 
