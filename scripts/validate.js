@@ -65,7 +65,7 @@ const setEventListeners = (formElement, config) => {
 }
 
 // find forms, add listeners for each form
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const { formSelector, ...rest } = config;
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach(formElement => {
@@ -76,4 +76,12 @@ const enableValidation = (config) => {
   });
 }
 
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__info',
+  submitButtonSelector: '.popup__save',
+  inputErrorClass: 'popup__info_type_error',
+  errorClass: 'popup__info-error_active'
+}
 
+enableValidation(config)
