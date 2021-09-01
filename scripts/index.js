@@ -1,5 +1,5 @@
 import { FormValidator } from "./formValidator.js";
-import { Card } from "./card.js";
+import Card from "./card.js";
 import { initialCards } from "./initialCards.js";
 import {
   popupList,

@@ -1,6 +1,6 @@
-const showInputError = (formElement, inputElement, config) => {
+/*const showInputError = (formElement, inputElement, config) => {
   const { inputErrorClass, errorClass, ...rest } = config;
-  // show error 
+  // show error
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
@@ -9,7 +9,7 @@ const showInputError = (formElement, inputElement, config) => {
 
 const hideInputError = (formElement, inputElement, config) => {
   const { inputErrorClass, errorClass, ...rest } = config;
-  //hide error 
+  //hide error
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
@@ -44,7 +44,7 @@ const toggleButtonState = (buttonElement, inputList) => {
 //find inputs, find button, add listeners for each input
 const setEventListeners = (formElement, config) => {
   const { inputSelector, submitButtonSelector, ...rest } = config;
-  // prevent reload 
+  // prevent reload
   formElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
   })
@@ -52,7 +52,7 @@ const setEventListeners = (formElement, config) => {
   //find input
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
 
-  //find button 
+  //find button
   const buttonElement = formElement.querySelector(submitButtonSelector);
 
   inputList.forEach((inputElement) => {
@@ -85,3 +85,4 @@ const config = {
 }
 
 enableValidation(config)
+*/

@@ -2,7 +2,7 @@ import { template, popupBigImg, picture } from './constants.js';
 import { handleEsc } from './index.js';
 
 
-export class Card {
+export default class Card {
 
   constructor(name, link, cardSelector) {
     this._name = name
