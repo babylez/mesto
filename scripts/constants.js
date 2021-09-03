@@ -1,9 +1,6 @@
 const popupList = document.querySelectorAll('.popup');
 
-const popup = document.querySelector('.popup-profile');
-
-const openPopupButton = document.querySelector('.profile__edit');
-
+const openPopupProfileButton = document.querySelector('.profile__edit');
 
 const closePopupButtons = document.querySelectorAll('.popup__close');
 
@@ -18,21 +15,20 @@ const jobInput = document.querySelector('.popup__info_type_job');
 const elements = document.querySelector('.elements');
 const template = document.querySelector('#card-template').content;
 
-const picture = document.querySelector('.popup-img__img');
+const picturePopupBigImg = document.querySelector('.popup-img__img');
 const popupBigImg = document.querySelector('.popup-img');
 
-const buttonImg = document.querySelector('.profile__button')
+const buttonOpenPopupAddCard = document.querySelector('.profile__button')
 
-const popupImg = document.querySelector('.popup_content_img');
+const popupAddCard = document.querySelector('.popup_content_place');
 
-const formImg = document.querySelector('.popup__form_content_img');
+const formAddCard = document.querySelector('.popup__form_content_img');
 const linkInput = document.querySelector('.popup__info_type_link');
 const nameImgInput = document.querySelector('.popup__info_type_name-img');
 
 export {
   popupList,
-  popup,
-  openPopupButton,
+  openPopupProfileButton,
   closePopupButtons,
   popupProfile,
   profileName,
@@ -41,11 +37,11 @@ export {
   jobInput,
   elements,
   template,
-  picture,
+  picturePopupBigImg,
   popupBigImg,
-  buttonImg,
-  popupImg,
-  formImg,
+  buttonOpenPopupAddCard,
+  popupAddCard,
+  formAddCard,
   linkInput,
   nameImgInput
 }

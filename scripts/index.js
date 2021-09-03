@@ -1,10 +1,10 @@
-import { FormValidator } from "./formValidator.js";
+
+import { FormValidator } from "./FormValidator.js";
 import Card from "./card.js";
 import { initialCards } from "./initialCards.js";
 import {
   popupList,
-  popup,
-  openPopupButton,
+  openPopupProfileButton,
   closePopupButtons,
   popupProfile,
   profileName,
@@ -12,13 +12,13 @@ import {
   nameInput,
   jobInput,
   elements,
-  buttonImg,
-  popupImg,
-  formImg,
+  buttonOpenPopupAddCard,
+  popupAddCard,
+  formAddCard,
   linkInput,
-  nameImgInput
+  nameImgInput,
+  template
 } from './constants.js';
-
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__info',
@@ -37,7 +37,7 @@ validatorCard.enableValidation();
 validatorProfile.enableValidation();
 //create card from array
 initialCards.forEach(item => {
-  const element = new Card(item.name, item.link);
+  const element = new Card(item.name, item.link, template);
   document.querySelector('.elements').append(element.render());
 })
 
@@ -47,9 +47,10 @@ export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', handleEsc);
 }
+
 // закрытие попапов
-export function closePopup(Popup) {
-  Popup.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keyup', handleEsc);
 }
 
@@ -74,13 +75,13 @@ closePopupButtons.forEach(el => el.addEventListener('click', () =>
   closePopup(el.closest('.popup'))));
 
 //попап профиль 
-function createPopupProfile() {
+function openPopupProfile() {
   openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
 
-function saveInfo(event) {
+function saveInfoProfile(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
@@ -88,28 +89,26 @@ function saveInfo(event) {
 }
 
 //кнопка плюс кнопка закрыть
-function openPopupImg() {
-  document.querySelector('.popup__save_content_img').disabled = true;
-  openPopup(popupImg);
+function openPopupAddCard() {
+  openPopup(popupAddCard);
 }
 
 // добавить карточки из формы
-
-function addCards(event) {
-  const card = new Card(nameImgInput.value, linkInput.value)
+function addCard(event) {
   event.preventDefault();
+  const card = new Card(nameImgInput.value, linkInput.value, template)
   elements.prepend(card.render());
-  closePopup(popupImg)
+  closePopup(popupAddCard)
   linkInput.value = '';
   nameImgInput.value = '';
 }
 
 // слушальщики
 
-openPopupButton.addEventListener('click', createPopupProfile);
+openPopupProfileButton.addEventListener('click', openPopupProfile);
 
-buttonImg.addEventListener('click', openPopupImg);
+buttonOpenPopupAddCard.addEventListener('click', openPopupAddCard);
 
-popup.addEventListener('submit', saveInfo);
+popupProfile.addEventListener('submit', saveInfoProfile);
 
-formImg.addEventListener('submit', addCards);
+formAddCard.addEventListener('submit', addCard);
