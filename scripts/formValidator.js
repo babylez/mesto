@@ -1,4 +1,3 @@
-//файл переименовал, сохранил законмитил, еще в прошлый раз, в гите отобразил с большой буквы, у меня с большой стоит тоже, а гитхаб не меняет, не понимаю( 
 export class FormValidator {
   constructor(data, formElement) {
     this._formSelector = data.formSelector
@@ -65,3 +64,4 @@ export class FormValidator {
     this._buttonElement.setAttribute('disabled', true);
   }
 }
+ 
