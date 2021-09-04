@@ -1,17 +1,17 @@
 import { template, popupBigImg, picturePopupBigImg } from './constants.js';
-import { handleEsc, openPopup } from './index.js';
+import { openPopup } from './index.js';
 
 
 export default class Card {
 
-  constructor(name, link, cardElementClass) {
+  constructor(name, link, cardSelector) {
     this._name = name
     this._link = link
-    this._cardElementClass = cardElementClass
+    this._cardSelector = cardSelector
   }
 
   _getTemplate() {
-    this._cardElement = this._cardElementClass.querySelector('.element').cloneNode(true);
+    this._cardElement = template.querySelector(this._cardSelector).cloneNode(true)
     return this._cardElement
   }
 
@@ -55,7 +55,6 @@ export default class Card {
     picturePopupBigImg.alt = this._name;
     picturePopupBigImg.src = this._link;
     document.querySelector('.popup-img__caption').textContent = this._name
-    document.addEventListener('keyup', handleEsc);
   }
 }
 

@@ -17,7 +17,6 @@ import {
   formAddCard,
   linkInput,
   nameImgInput,
-  template
 } from './constants.js';
 const config = {
   formSelector: '.popup__form',
@@ -35,10 +34,15 @@ const validatorCard = new FormValidator(config, formCard)
 
 validatorCard.enableValidation();
 validatorProfile.enableValidation();
+
+
+function lol(el) {
+  const card = new Card(el.name, el.link, '.element');
+  return card.render()
+}
 //create card from array
 initialCards.forEach(item => {
-  const element = new Card(item.name, item.link, template);
-  document.querySelector('.elements').append(element.render());
+  document.querySelector('.elements').append(lol(item));
 })
 
 
@@ -96,11 +100,12 @@ function openPopupAddCard() {
 // добавить карточки из формы
 function addCard(event) {
   event.preventDefault();
-  const card = new Card(nameImgInput.value, linkInput.value, template)
-  elements.prepend(card.render());
+  console.log(nameImgInput);
+  elements.prepend(lol({ name: nameImgInput.value, link: linkInput.value }));
   closePopup(popupAddCard)
   linkInput.value = '';
   nameImgInput.value = '';
+  validatorCard.disableSubmitButton();
 }
 
 // слушальщики

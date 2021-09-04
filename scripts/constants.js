@@ -22,10 +22,9 @@ const buttonOpenPopupAddCard = document.querySelector('.profile__button')
 
 const popupAddCard = document.querySelector('.popup_content_place');
 
-const formAddCard = document.querySelector('.popup__form_content_img');
+const formAddCard = document.querySelector('.popup__form_content_place');
 const linkInput = document.querySelector('.popup__info_type_link');
 const nameImgInput = document.querySelector('.popup__info_type_name-img');
-
 export {
   popupList,
   openPopupProfileButton,
