@@ -36,13 +36,13 @@ validatorCard.enableValidation();
 validatorProfile.enableValidation();
 
 
-function lol(el) {
+function getSampleCard(el) {
   const card = new Card(el.name, el.link, '.element');
   return card.render()
 }
 //create card from array
 initialCards.forEach(item => {
-  document.querySelector('.elements').append(lol(item));
+  document.querySelector('.elements').append(getSampleCard(item));
 })
 
 
@@ -101,7 +101,7 @@ function openPopupAddCard() {
 function addCard(event) {
   event.preventDefault();
   console.log(nameImgInput);
-  elements.prepend(lol({ name: nameImgInput.value, link: linkInput.value }));
+  elements.prepend(getSampleCard({ name: nameImgInput.value, link: linkInput.value }));
   closePopup(popupAddCard)
   linkInput.value = '';
   nameImgInput.value = '';
