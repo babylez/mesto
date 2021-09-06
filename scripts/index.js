@@ -37,12 +37,12 @@ validatorProfile.enableValidation();
 
 
 function getSampleCard(el) {
-  const card = new Card(el.name, el.link, '.element');
+  const card = new Card(el.name, el.link, '#card-template', '.element');
   return card.render()
 }
 //create card from array
 initialCards.forEach(item => {
-  document.querySelector('.elements').append(getSampleCard(item));
+  elements.append(getSampleCard(item));
 })
 
 
@@ -100,7 +100,6 @@ function openPopupAddCard() {
 // добавить карточки из формы
 function addCard(event) {
   event.preventDefault();
-  console.log(nameImgInput);
   elements.prepend(getSampleCard({ name: nameImgInput.value, link: linkInput.value }));
   closePopup(popupAddCard)
   linkInput.value = '';

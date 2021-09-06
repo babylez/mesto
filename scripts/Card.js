@@ -1,17 +1,19 @@
-import { template, popupBigImg, picturePopupBigImg } from './constants.js';
+import { popupBigImg, picturePopupBigImg } from './constants.js';
 import { openPopup } from './index.js';
 
 
 export default class Card {
 
-  constructor(name, link, cardSelector) {
+  constructor(name, link, cardSelector, elementSelector) {
     this._name = name
     this._link = link
     this._cardSelector = cardSelector
+    this._elementSelector = elementSelector
   }
 
   _getTemplate() {
-    this._cardElement = template.querySelector(this._cardSelector).cloneNode(true)
+    this._cardElement = document.querySelector(this._cardSelector).content.querySelector(this._elementSelector)
+      .cloneNode(true)
     return this._cardElement
   }
 

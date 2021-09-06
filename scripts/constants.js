@@ -13,7 +13,6 @@ const nameInput = document.querySelector('.popup__info_type_full-name');
 const jobInput = document.querySelector('.popup__info_type_job');
 
 const elements = document.querySelector('.elements');
-const template = document.querySelector('#card-template').content;
 
 const picturePopupBigImg = document.querySelector('.popup-img__img');
 const popupBigImg = document.querySelector('.popup-img');
@@ -25,6 +24,7 @@ const popupAddCard = document.querySelector('.popup_content_place');
 const formAddCard = document.querySelector('.popup__form_content_place');
 const linkInput = document.querySelector('.popup__info_type_link');
 const nameImgInput = document.querySelector('.popup__info_type_name-img');
+
 export {
   popupList,
   openPopupProfileButton,
@@ -35,7 +35,6 @@ export {
   nameInput,
   jobInput,
   elements,
-  template,
   picturePopupBigImg,
   popupBigImg,
   buttonOpenPopupAddCard,
