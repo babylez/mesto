@@ -1,7 +1,7 @@
 
-import { FormValidator } from "./FormValidator.js";
-import Card from "./card.js";
-import { initialCards } from "./initialCards.js";
+import { FormValidator } from "../src/components/FormValidator.js";
+import Card from "../src/components/Card.js";
+import { initialCards } from "../src/initialCards.js"
 import {
   popupList,
   openPopupProfileButton,
@@ -17,7 +17,7 @@ import {
   formAddCard,
   linkInput,
   nameImgInput,
-} from './constants.js';
+} from '../src/constants.js';
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__info',
@@ -25,6 +25,7 @@ const config = {
   inputErrorClass: 'popup__info_type_error',
   errorClass: 'popup__info-error_active'
 }
+import { Popup } from '../src/components/Popup.js'
 
 const formProfile = document.querySelector('.form-profile')
 const formCard = document.querySelector('.form-card')
@@ -34,6 +35,9 @@ const validatorCard = new FormValidator(config, formCard)
 
 validatorCard.enableValidation();
 validatorProfile.enableValidation();
+
+const PopupUser = new Popup('.popup-profile');
+PopupUser.setEventListeners();
 
 
 function getSampleCard(el) {

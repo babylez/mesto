@@ -1,5 +1,5 @@
-import { popupBigImg, picturePopupBigImg } from './constants.js';
-import { openPopup } from './index.js';
+import { popupBigImg, picturePopupBigImg } from '../constants.js';
+import { openPopup } from '../../pages/index.js';
 
 
 export default class Card {
