@@ -4,11 +4,12 @@ import { openPopup } from '../../pages/index.js';
 
 export default class Card {
 
-  constructor(name, link, cardSelector, elementSelector) {
+  constructor(name, link, cardSelector, elementSelector, handleCardClick) {
     this._name = name
     this._link = link
     this._cardSelector = cardSelector
     this._elementSelector = elementSelector
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -35,6 +36,7 @@ export default class Card {
   //delete card
   _deleteItem() {
     this._cardElement.remove();
+    console.log(this._cardElement);
   }
 
   // listeners on like/delete
@@ -47,16 +49,9 @@ export default class Card {
       this._deleteItem()
     })
 
-    this._cardElement.querySelector('.element__image').addEventListener('click', () => {
-      this._openPopupImage()
-    })
+    this._cardElement.querySelector('.element__image').addEventListener('click', this._handleCardClick)
   }
   //open popup with image
-  _openPopupImage() {
-    openPopup(popupBigImg)
-    picturePopupBigImg.alt = this._name;
-    picturePopupBigImg.src = this._link;
-    document.querySelector('.popup-img__caption').textContent = this._name
-  }
+
 }
 

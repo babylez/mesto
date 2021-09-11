@@ -1,37 +1,51 @@
-import { openPopupProfileButton } from "../constants.js";
+import {
+  nameInput,
+  profileName,
+  jobInput,
+  profileJob,
+  //closePopupButtons
+} from "../constants.js";
 
 export class Popup {
   constructor(selectorPopup) {
-    this._selectorPopup = selectorPopup
-  }
-
-  _handleEscClose() {
-    //close popup click on esc
-    console.log("Escape");
+    this._popup = document.querySelector(selectorPopup)
+    this._handleEscClose = this._handleEscClose.bind(this)
+    this._handlClickOverlay = this._handlClickOverlay.bind(this)
   }
 
   open() {
     //open.popup
-    console.log(this._selectorPopup);
-    //this._selectorPopup.classList.add('popup_opened');
-    document.addEventListener('keyup', () => {
-      this._handleEscClose()
-    });
+    this._popup.classList.add('popup_opened');
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+    document.addEventListener('keyup', this._handleEscClose);
+    this._popup.addEventListener('click', this._handlClickOverlay);
   }
 
   close() {
     //close.popup
+    this._popup.classList.remove('popup_opened');
+    document.removeEventListener('keyup', this._handleEscClose);
+    this._popup.removeEventListener('click', this._handlClickOverlay)
+  }
+
+  _handleEscClose(evt) {
+    //close popup click on esc
+    if (evt.key === 'Escape') {
+      this.close()
+      console.log("Escape");
+    }
+  }
+
+  _handlClickOverlay(event) {
+    if (event.target === event.currentTarget) {
+      this.close();
+    }
   }
 
   setEventListeners() {
-    // buttonClosePopup.addEventlistener('click', close)
-    openPopupProfileButton.addEventListener('click', () => {
-      this.open()
-    })
-
-    openPopupProfileButton.addEventListener('click', () => {
-      this._handleEscClose()
-    })
+    // popup closing listeners
+    this._buttonClosePopup = this._popup.querySelector('.popup__close')
+    this._buttonClosePopup.addEventListener('click', () => this.close())
   }
-
 }

@@ -1,16 +1,18 @@
-class Section {
-  constructor({ items, renderer }, conteinerSelector) {
-    this._renderer() = renderer;
-    this._conteinerSelector = conteinerSelector;
+export class Section {
+  constructor({ items, renderer }, containerSelector) {
+    this._items = items
+    this._renderer = renderer;
+    this._container = document.querySelector(containerSelector);
 
   }
 
-  drawElement() {
-
+  renderItems() {
+    //get arr and causes setItem
+    this._items.forEach(el => this._renderer(el));
   }
 
-  addItem(element) {
-    // this._conteinerSelector.prepend(element)
+  setItem(el) {
+    //add item in container
+    this._container.append(el)
   }
-
 }

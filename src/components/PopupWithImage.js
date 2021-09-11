@@ -1,8 +1,15 @@
-class PopupWithImage extends Card {
-  constructor(selectorPopup) {
-    super(selectorPopup)
+import { Popup } from "../components/Popup.js";
+
+export class PopupWithImage extends Popup {
+  constructor(popupSelector) {
+    super(popupSelector)
   }
-  open() {
-    //add image with src and name
+  open(link, name) {
+    this._link = this._popup.querySelector('.popup-img__img');
+    this._name = this._popup.querySelector('.popup-img__caption');
+    this._link.src = link;
+    this._link.alt = name;
+    this._name.textContent = name;
+    super.open();
   }
 }
