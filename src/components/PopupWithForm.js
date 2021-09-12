@@ -33,15 +33,9 @@ class PopupWithForm extends Popup {
     this.close();
   }
 
-  _clearFrom() {
-    this._form = document.querySelector(inputElement.id)
-
-  }
-
   close() {
     super.close();
     this._popup.removeEventListener('submit', this._onSubmitForm);
-    this._clearFrom()
   }
 
 }

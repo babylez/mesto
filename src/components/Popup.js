@@ -3,7 +3,6 @@ import {
   profileName,
   jobInput,
   profileJob,
-  //closePopupButtons
 } from "../constants.js";
 
 export class Popup {

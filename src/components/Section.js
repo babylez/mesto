@@ -17,7 +17,6 @@ export class Section {
   }
 
   setNewItem(el) {
-    console.log(window.score)
     this._container.prepend(el)
   }
 }

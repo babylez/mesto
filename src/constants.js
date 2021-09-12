@@ -1,10 +1,4 @@
-const popupList = document.querySelectorAll('.popup');
-
 const openPopupProfileButton = document.querySelector('.profile__edit');
-
-const closePopupButtons = document.querySelectorAll('.popup__close');
-
-const popupProfile = document.querySelector('.popup-profile');
 
 const profileName = document.querySelector('.profile__fullname');
 const profileJob = document.querySelector('.profile__job');
@@ -12,34 +6,33 @@ const profileJob = document.querySelector('.profile__job');
 const nameInput = document.querySelector('.popup__info_type_full-name');
 const jobInput = document.querySelector('.popup__info_type_job');
 
-const elements = document.querySelector('.elements');
-
 const picturePopupBigImg = document.querySelector('.popup-img__img');
 const popupBigImg = document.querySelector('.popup-img');
 
 const buttonOpenPopupAddCard = document.querySelector('.profile__button')
 
-const popupAddCard = document.querySelector('.popup_content_place');
+const formProfile = document.querySelector('.form-profile')
+const formCard = document.querySelector('.form-card')
 
-const formAddCard = document.querySelector('.popup__form_content_place');
-const linkInput = document.querySelector('.popup__info_type_link');
-const nameImgInput = document.querySelector('.popup__info_type_name-img');
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__info',
+  submitButtonSelector: '.popup__save',
+  inputErrorClass: 'popup__info_type_error',
+  errorClass: 'popup__info-error_active'
+}
 
 export {
-  popupList,
-  openPopupProfileButton,
-  closePopupButtons,
-  popupProfile,
+  config,
   profileName,
   profileJob,
+  formProfile,
+  formCard,
+  openPopupProfileButton,
   nameInput,
   jobInput,
-  elements,
   picturePopupBigImg,
   popupBigImg,
   buttonOpenPopupAddCard,
-  popupAddCard,
-  formAddCard,
-  linkInput,
-  nameImgInput
 }
