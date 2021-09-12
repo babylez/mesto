@@ -15,4 +15,9 @@ export class Section {
     //add item in container
     this._container.append(el)
   }
+
+  setNewItem(el) {
+    console.log(window.score)
+    this._container.prepend(el)
+  }
 }

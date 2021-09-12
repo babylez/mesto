@@ -1,76 +1,50 @@
 import { Popup } from "../components/Popup.js";
 
 class PopupWithForm extends Popup {
-  constructor(selectorPopup, callBackSubmit, selectorForm) {
+  constructor(selectorPopup, callBackSubmit, selectorForm,) {
     super(selectorPopup);
     this._callBackSubmit = callBackSubmit;
-
+    this._selectorForm = selectorForm;
+    this._onSubmitForm = this._onSubmitForm.bind(this)
   }
+
 
   _getInputValues() {
     // collect data all forms
-    console.log(this._popup);
     this._inputList = this._popup.querySelectorAll('.popup__info');
     this._formValue = {};
-    console.log(this._formValue);
     this._inputList.forEach(input => {
-      this._formValue[input.textContent] = input.value
+      this._formValue[input.id] = input.value
     });
-    console.log(this._formValue);
     return this._formValue
   }
 
   setEventListeners() {
     // add form submission handler
     super.setEventListeners()
-    this._form = document.querySelector('.')
-    this._popup.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._callBackSubmit(this._getInputValues())
-    })
+    this._form = document.querySelector(this._selectorForm)
+    this._popup.addEventListener('submit', this._onSubmitForm)
 
   }
-  //close()
+
+  _onSubmitForm(evt) {
+    evt.preventDefault();
+    this._callBackSubmit(this._getInputValues())
+    this.close();
+  }
+
+  _clearFrom() {
+    this._form = document.querySelector(inputElement.id)
+
+  }
+
+  close() {
+    super.close();
+    this._popup.removeEventListener('submit', this._onSubmitForm);
+    this._clearFrom()
+  }
+
 }
-
-
-//const profileInfo = new UserInfo(profileTitle, profileSubTitle);
-/*
-const popupProfile = new PopupWithForm(popupProfileEdit, (data) => {
-  profileInfo.setUserInfo(data);
-  popupProfile.close();
-  editProfileFormValidation.resetValidation();
-});
-
-setUserInfo(data) {
-  if (data.username) {
-    this._name.textContent = data.username;
-  }
-  if (data.description) {
-    this._description.textContent = data.description;
-  }
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export { PopupWithForm }
 

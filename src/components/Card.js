@@ -1,6 +1,3 @@
-import { popupBigImg, picturePopupBigImg } from '../constants.js';
-import { openPopup } from '../../pages/index.js';
-
 
 export default class Card {
 
@@ -36,7 +33,6 @@ export default class Card {
   //delete card
   _deleteItem() {
     this._cardElement.remove();
-    console.log(this._cardElement);
   }
 
   // listeners on like/delete
@@ -51,7 +47,5 @@ export default class Card {
 
     this._cardElement.querySelector('.element__image').addEventListener('click', this._handleCardClick)
   }
-  //open popup with image
-
 }
 

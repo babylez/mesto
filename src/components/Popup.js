@@ -20,6 +20,9 @@ export class Popup {
     jobInput.value = profileJob.textContent;
     document.addEventListener('keyup', this._handleEscClose);
     this._popup.addEventListener('click', this._handlClickOverlay);
+
+    this.setEventListeners();
+
   }
 
   close() {
@@ -33,7 +36,6 @@ export class Popup {
     //close popup click on esc
     if (evt.key === 'Escape') {
       this.close()
-      console.log("Escape");
     }
   }
 
