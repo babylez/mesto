@@ -1,9 +1,3 @@
-import {
-  nameInput,
-  profileName,
-  jobInput,
-  profileJob,
-} from "../constants.js";
 
 export class Popup {
   constructor(selectorPopup) {
@@ -15,13 +9,8 @@ export class Popup {
   open() {
     //open.popup
     this._popup.classList.add('popup_opened');
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
     document.addEventListener('keyup', this._handleEscClose);
     this._popup.addEventListener('click', this._handlClickOverlay);
-
-    this.setEventListeners();
-
   }
 
   close() {
