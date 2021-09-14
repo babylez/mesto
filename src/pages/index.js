@@ -6,6 +6,7 @@ import Card from "../components/Card.js";
 import { Section } from "../components/Section.js";
 import { initialCards } from "../utils/initialCards.js"
 import { PopupWithImage } from "../components/PopupWithImage.js";
+
 import {
   config,
   formProfile,
@@ -14,8 +15,6 @@ import {
   nameInput,
   jobInput,
   buttonOpenPopupAddCard,
-  profileName,
-  profileJob
 } from '../utils/constants.js';
 
 const imagePopup = new PopupWithImage('.popup-img');
@@ -72,7 +71,6 @@ const popupProfile = new PopupWithForm('.popup-profile', (inputValues) => {
   })
 })
 
-
 popupProfile.setEventListeners();
 
 //listeners popup
@@ -81,6 +79,7 @@ buttonOpenPopupAddCard.addEventListener('click', () => {
   validatorCard.resetValidation()
 })
 
+//listeners popup
 openPopupProfileButton.addEventListener('click', () => {
   popupProfile.open()
   const userData = userInfo.getUserInfo()

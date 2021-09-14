@@ -1,20 +1,11 @@
 const openPopupProfileButton = document.querySelector('.profile__edit');
-
-const profileName = document.querySelector('.profile__fullname');
-const profileJob = document.querySelector('.profile__job');
-
 const nameInput = document.querySelector('.popup__info_type_full-name');
 const jobInput = document.querySelector('.popup__info_type_job');
-
 const picturePopupBigImg = document.querySelector('.popup-img__img');
 const popupBigImg = document.querySelector('.popup-img');
-
 const buttonOpenPopupAddCard = document.querySelector('.profile__button')
-
 const formProfile = document.querySelector('.form-profile')
 const formCard = document.querySelector('.form-card')
-
-
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__info',
@@ -25,8 +16,6 @@ const config = {
 
 export {
   config,
-  profileName,
-  profileJob,
   formProfile,
   formCard,
   openPopupProfileButton,
