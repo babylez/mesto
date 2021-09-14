@@ -66,7 +66,10 @@ const userInfo = new UserInfo('.profile__fullname', '.profile__job');
 
 //create popup profile
 const popupProfile = new PopupWithForm('.popup-profile', () => {
-  userInfo.setUserInfo({ name: nameInput.value, info: jobInput.value })
+  userInfo.setUserInfo({
+    name: inputValues['full-name-input'],
+    info: inputValues['job-input']
+  })
 }, '.form-profile');
 
 popupProfile.setEventListeners();
