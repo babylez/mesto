@@ -15,7 +15,7 @@ export class UserInfo {
     }
   }
 
-  setUserInfo(inputInfo, inputName) {
+  setUserInfo(item) {
     //set new userinfo 
     if (item.name) {
       this._userName.textContent = item.name;
