@@ -28,12 +28,11 @@ class PopupWithForm extends Popup {
     evt.preventDefault();
     this._callBackSubmit(this._getInputValues())
     this.close();
-    this._form.reset()
   }
 
   close() {
     super.close();
-    //наставник сказал, что очищать поля при закрытии не нужно, так как если случайно закрыл форму ее придется заново заполнять
+    this._form.reset()
   }
 }
 

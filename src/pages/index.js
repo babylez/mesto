@@ -17,14 +17,13 @@ import {
   profileName,
   profileJob
 } from '../utils/constants.js';
-/*
-nameInput.value = profileName.textContent;
-jobInput.value = profileJob.textContent;*/
+
+const imagePopup = new PopupWithImage('.popup-img');
+imagePopup.setEventListeners();
 
 //попап картинки
 function handleCardClick(name, link) {
-  const imagePopup = new PopupWithImage('.popup-img');
-  imagePopup.setEventListeners(name, link)
+  imagePopup.open(name, link)
 }
 
 //validation
@@ -67,7 +66,7 @@ const userInfo = new UserInfo('.profile__fullname', '.profile__job');
 
 //create popup profile
 const popupProfile = new PopupWithForm('.popup-profile', () => {
-  userInfo.setUserInfo(jobInput.value, nameInput.value)
+  userInfo.setUserInfo({ name: nameInput.value, info: jobInput.value })
 }, '.form-profile');
 
 popupProfile.setEventListeners();
@@ -80,7 +79,8 @@ buttonOpenPopupAddCard.addEventListener('click', () => {
 
 openPopupProfileButton.addEventListener('click', () => {
   popupProfile.open()
-  nameInput.value = profileName.textContent; //и вот здесь не очень разобрался, если мы их добавим в открытие попап то, при закрытие его на крестик, все что было введено пользователем, сбросится
-  jobInput.value = profileJob.textContent;
+  const userData = userInfo.getUserInfo()
+  nameInput.value = userData.name
+  jobInput.value = userData.info
   validatorProfile.resetValidation()
 })

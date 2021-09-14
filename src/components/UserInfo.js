@@ -17,7 +17,11 @@ export class UserInfo {
 
   setUserInfo(inputInfo, inputName) {
     //set new userinfo 
-    this._userInfo.textContent = inputInfo.value
-    this._userName.textContent = inputName.value
+    if (item.name) {
+      this._userName.textContent = item.name;
+    }
+    if (item.info) {
+      this._userInfo.textContent = item.info
+    }
   }
 }
