@@ -65,12 +65,13 @@ popupCard.setEventListeners()
 const userInfo = new UserInfo('.profile__fullname', '.profile__job');
 
 //create popup profile
-const popupProfile = new PopupWithForm('.popup-profile', () => {
+const popupProfile = new PopupWithForm('.popup-profile', (inputValues) => {
   userInfo.setUserInfo({
     name: inputValues['full-name-input'],
     info: inputValues['job-input']
   })
-}, '.form-profile');
+})
+
 
 popupProfile.setEventListeners();
 
