@@ -6,6 +6,7 @@ const popupBigImg = document.querySelector('.popup-img');
 const buttonOpenPopupAddCard = document.querySelector('.profile__button')
 const formProfile = document.querySelector('.form-profile')
 const formCard = document.querySelector('.form-card')
+const formAvatar = document.querySelector('.form-profile-edit ')
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__info',
@@ -24,4 +25,5 @@ export {
   picturePopupBigImg,
   popupBigImg,
   buttonOpenPopupAddCard,
+  formAvatar,
 }

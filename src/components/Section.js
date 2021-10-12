@@ -19,4 +19,9 @@ export class Section {
   setNewItem(el) {
     this._container.prepend(el)
   }
+
+  addItem(el) {
+    this._items.push(el);
+  }
+
 }

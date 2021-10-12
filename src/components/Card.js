@@ -1,12 +1,17 @@
-
 export default class Card {
 
-  constructor(name, link, cardSelector, elementSelector, handleCardClick) {
-    this._name = name
-    this._link = link
+  _handleCardDelete;
+
+  constructor(el, cardSelector, elementSelector, handleCardClick, api) {
+    this._el = el
+    this._name = el.name
+    this._link = el.link
+    this._likes = el.likes;
+    this._owner = el.owner;
     this._cardSelector = cardSelector
     this._elementSelector = elementSelector
     this._handleCardClick = handleCardClick
+    this._api = api;
   }
 
   _getTemplate() {
@@ -15,19 +20,75 @@ export default class Card {
     return this._cardElement
   }
 
+
+  setDeleteHandler(handler) {
+    this._handleCardDelete = handler;
+  }
+
+  //TODO NIKITA
+  _showUserLiked() {
+    //найти свой id среди всех остальных если он есть отобразить, что лайк стоит
+    if (this._likes.forEach(user => {
+      if (user._id === window.userId) {
+        return true
+      }
+    })) {
+      //Отобразить заштрихованный лайк
+    }
+  }
+
   render() {
     this._getTemplate();
     this._setEventListeners();
+    if (this._likes.length) {
+      this._showLikeCounter();
+      this._showUserLiked()
+    }
     this._cardElement.querySelector('.element__title').textContent = this._name;
     this._cardElement.querySelector('.element__image').src = this._link;
     this._cardElement.querySelector('.element__image').alt = this._name;
+    this._cardElement.querySelector('.like-counter').textContent = this._likes.length
+    this._chekId()
     return this._cardElement
+  }
+
+  _chekId() {
+    console.log("checkingID", this._owner._id, window.userId)
+    if (window.userId !== this._owner._id) {
+      this._cardElement.querySelector('.element__delet').style.display = "none";
+    }
   }
 
   //add like or remove like
   _likeCard() {
-    this._cardElement.querySelector('.element__button')
-      .classList.toggle('element__button_type_active');
+
+    if (this._cardElement.querySelector('.element__button').classList.contains('element__button_type_active')) {
+      this._api.changeLikeCardStatus(this._el, "DELETE");
+      this._cardElement.querySelector('.like-counter').textContent--;
+      if (this._cardElement.querySelector('.like-counter').textContent === "0") this._hideLikeCounter();
+    } else {
+      this._api.changeLikeCardStatus(this._el, "PUT");
+      if (this._cardElement.querySelector('.like-counter').textContent === "0") this._showLikeCounter();
+      this._cardElement.querySelector('.like-counter').textContent++;
+    }
+
+    this._cardElement.querySelector('.element__button').classList.toggle('element__button_type_active');
+  }
+
+  _showLikeCounter() {
+    this._cardElement.querySelector('.like-counter').classList.remove('like-counter_type_hidden')
+  }
+
+  _hideLikeCounter() {
+    this._cardElement.querySelector('.like-counter').classList.add('like-counter_type_hidden')
+  }
+
+  //check delete
+
+  _checkDelete() {
+    const popupDel = document.querySelector('.popup-chek-delete-card')
+      .classList.add('popup_opened')
+
   }
 
   //delete card
@@ -42,7 +103,8 @@ export default class Card {
     })
 
     this._cardElement.querySelector('.element__delet').addEventListener('click', () => {
-      this._deleteItem()
+      this._handleCardDelete();
+
     })
 
     this._cardElement.querySelector('.element__image').addEventListener('click', this._handleCardClick)

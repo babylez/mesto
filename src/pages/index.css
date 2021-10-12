@@ -22,6 +22,14 @@
 
 @import url(../blocks/elements/elements.css);
 
+@import url(../blocks/element/__like/element__like.css);
+
+@import url(../blocks/like-counter/like-counter.css);
+
+@import url(../blocks/like-counter/_type/like-counter_type_hidden.css);
+
+@import url(../blocks/like-counter/_type/like-counter_type_visible.css);
+
 @import url(../blocks/footer/footer.css);
 
 @import url(../blocks/footer/__author/footer__author.css);
@@ -85,3 +93,11 @@
 @import url(../blocks/popup/__info/_type/popup__info_type_error.css);
 
 @import url(../blocks/error/error.css);
+
+@import url(../blocks/popup-chek-delete-card/__title/popup-chek-delete-card__title.css);
+
+@import url(../blocks/popup-chek-delete-card/__save/popup-chek-delete-card__save.css);
+
+@import url(../blocks/popup-chek-delete-card/__close/popup-chek-delete-card__close.css);
+
+@import url(../blocks/profile/__avatar-pencil/profile__avatar-pencil.css);

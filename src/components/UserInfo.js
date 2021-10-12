@@ -1,27 +1,35 @@
 export class UserInfo {
 
-  constructor(selectorUserName, selectorUserInfo) {
+  constructor(selectorUserName, selectorUserInfo, selectorUserAvatar) {
     this._userName = document.querySelector(selectorUserName);
     this._userInfo = document.querySelector(selectorUserInfo);
+    this._userAvatar = document.queryCommandIndeterm(selectorUserAvatar)
   }
-
-
 
   getUserInfo() {
     //return obj with date user 
     return {
       name: this._userName.textContent,
-      info: this._userInfo.textContent
+      info: this._userInfo.textContent,
+      avatar: this._userImgElm.src,
+      id: this._userID
     }
   }
 
   setUserInfo(item) {
     //set new userinfo 
+    console.log(item);
     if (item.name) {
       this._userName.textContent = item.name;
     }
-    if (item.info) {
-      this._userInfo.textContent = item.info
+    if (item.about) {
+      this._userInfo.textContent = item.about
+    }
+    if (item._id) {
+      window.userId = item._id;
+    }
+    if (item.avatar) {
+      this._userAvatar = item.avatar
     }
   }
 }

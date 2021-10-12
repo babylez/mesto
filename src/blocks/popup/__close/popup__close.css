@@ -18,7 +18,7 @@
 
 @media (max-width: 600px) {
   .popup__close {
-    background-image: url(../../../images/CloseIconSmall.svg); /* честно не понимаю, что значит два разных изображения, */
+    background-image: url(../../../images/CloseIconSmall.svg);
     width: 26px;
     height: 26px;
     margin-right: 0;
