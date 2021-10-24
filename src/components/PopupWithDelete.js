@@ -19,7 +19,6 @@ export class PopupWithDelete extends Popup {
   _submitForm(evt) {
     evt.preventDefault();
     this._callBackSubmit();
-    this.close();
   }
 
   close() {

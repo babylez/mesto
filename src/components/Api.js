@@ -84,14 +84,16 @@ export class Api {
             .then(this._checkAnswer)
     }
 
-    updateProfileAvatar(user) {
-        return fetch(`${this._url}/users/me`, {
+    updateProfileAvatar(/*{ avatar }*/) {
+        return fetch(`${this._url}/users/me/avatar`, {
             method: "PATCH",
             headers: {
                 authorization: this._authToken,
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
+            },/*
+            body: JSON.stringify({
+                avatar: avatar,
+            })*/
         })
             .then(this._checkAnswer)
     }

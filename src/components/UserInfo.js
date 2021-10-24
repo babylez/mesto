@@ -3,7 +3,7 @@ export class UserInfo {
   constructor(selectorUserName, selectorUserInfo, selectorUserAvatar) {
     this._userName = document.querySelector(selectorUserName);
     this._userInfo = document.querySelector(selectorUserInfo);
-    this._userAvatar = document.queryCommandIndeterm(selectorUserAvatar)
+    this._userAvatar = document.querySelector(selectorUserAvatar)
   }
 
   getUserInfo() {
@@ -12,22 +12,25 @@ export class UserInfo {
       name: this._userName.textContent,
       info: this._userInfo.textContent,
       avatar: this._userImgElm.src,
-      id: this._userID
+      id: this._userID,
     }
   }
 
+  /* getUserAvatar() {
+     return { avatar: this._userImgElm.src }
+   }*/
+
   setUserInfo(item) {
     //set new userinfo 
-    console.log(item);
     if (item.name) {
       this._userName.textContent = item.name;
     }
     if (item.about) {
       this._userInfo.textContent = item.about
     }
-    if (item._id) {
-      window.userId = item._id;
-    }
+    /* if (item._id) {
+       window.userId = item._id;
+     }*/
     if (item.avatar) {
       this._userAvatar = item.avatar
     }

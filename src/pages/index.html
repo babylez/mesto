@@ -79,7 +79,8 @@
       <button type="button" class="popup__close popup__close_content_place rotation button"></button>
       <div class="popup__content popup__content_content_place">
         <h2 class="popup__title popup__title_content_place">Новое место</h2>
-        <form action="#" method="POST" name="form" class="popup__form form-card popup__form_content_place" novalidate>
+        <form action="#" method="POST" name="form-card" class="popup__form form-card popup__form_content_place"
+          novalidate>
           <input name="text" type="text" value="" placeholder="название" minlength="2" maxlength="30" required
             class="popup__info popup__info_type_name-img" id="title-input">
           <span class="error title-input-error"></span>
@@ -105,7 +106,7 @@
       <button type="button" class="popup__close button"></button>
       <div class="popup__content popup__content-delete-card">
         <h2 class="popup__title popup-chek-delete-card__title">Вы уверены?</h2>
-        <form action="#" method="POST" name="form" class="popup__form popup__form_delete-card" novalidate>
+        <form action="#" method="POST" name="form-delete" class="popup__form popup__form_delete-card" novalidate>
           <button class="popup__save popup-chek-delete-card__save" type="submit">да</button>
         </form>
       </div>
@@ -117,8 +118,8 @@
       <button type="button" class="popup__close popup__close-profile-edit rotation button"></button>
       <div class="popup__content popup__content-profile-edit">
         <h2 class="popup__title popup__title-profile-edit">Обновить аватар</h2>
-        <form action="#" method="POST" name="form" class="popup__form form-profile-edit popup__form_profile-edit"
-          novalidate>
+        <form action="#" method="POST" name="form-profile"
+          class="popup__form form-profile-edit popup__form_profile-edit" novalidate>
           <input name="text" type="url" value="" placeholder="url" minlength="2" maxlength="30" required
             class="popup__info popup__info_type_profile-edit" id="avatar-title-input">
           <span class="error avatar-title-input-error"></span>

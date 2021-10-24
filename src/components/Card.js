@@ -25,15 +25,13 @@ export default class Card {
     this._handleCardDelete = handler;
   }
 
-  //TODO NIKITA
   _showUserLiked() {
     //найти свой id среди всех остальных если он есть отобразить, что лайк стоит
     if (this._likes.forEach(user => {
       if (user._id === window.userId) {
-        return true
+        this._cardElement.querySelector('.element__button').classList.add('element__button_type_active')
       }
     })) {
-      //Отобразить заштрихованный лайк
     }
   }
 
@@ -53,7 +51,7 @@ export default class Card {
   }
 
   _chekId() {
-    console.log("checkingID", this._owner._id, window.userId)
+
     if (window.userId !== this._owner._id) {
       this._cardElement.querySelector('.element__delet').style.display = "none";
     }
@@ -92,7 +90,7 @@ export default class Card {
   }
 
   //delete card
-  _deleteItem() {
+  deleteItem() {
     this._cardElement.remove();
   }
 
