@@ -24,6 +24,10 @@ class PopupWithForm extends Popup {
     this._form.addEventListener('submit', this._onSubmitForm)
   }
 
+  setButtonText(phrase) {
+    this._form.querySelector(".popup__save").textContent = phrase;
+  }
+
   _onSubmitForm(evt) {
     evt.preventDefault();
     this._callBackSubmit(this._getInputValues())

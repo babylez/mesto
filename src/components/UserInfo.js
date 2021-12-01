@@ -11,14 +11,10 @@ export class UserInfo {
     return {
       name: this._userName.textContent,
       info: this._userInfo.textContent,
-      avatar: this._userImgElm.src,
-      id: this._userID,
+      avatar: this._userAvatar.src,
+      id: this._userId,
     }
   }
-
-  /* getUserAvatar() {
-     return { avatar: this._userImgElm.src }
-   }*/
 
   setUserInfo(item) {
     //set new userinfo 
@@ -28,9 +24,9 @@ export class UserInfo {
     if (item.about) {
       this._userInfo.textContent = item.about
     }
-    /* if (item._id) {
-       window.userId = item._id;
-     }*/
+    if (item._id) {
+      window.userId = item._id;
+    }
     if (item.avatar) {
       this._userAvatar = item.avatar
     }

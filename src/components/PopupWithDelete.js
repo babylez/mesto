@@ -14,7 +14,10 @@ export class PopupWithDelete extends Popup {
     this._form.addEventListener('submit', this._submitForm)
   }
 
-
+  
+  setCallBackSubmit(callback) {
+    this._callBackSubmit = callback;
+  }
 
   _submitForm(evt) {
     evt.preventDefault();

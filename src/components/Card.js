@@ -2,7 +2,7 @@ export default class Card {
 
   _handleCardDelete;
 
-  constructor(el, cardSelector, elementSelector, handleCardClick, api) {
+  constructor(el, cardSelector, elementSelector, handleCardClick, deleteLikeRemoteHandler, setLikeRemoteHandler) {
     this._el = el
     this._name = el.name
     this._link = el.link
@@ -11,7 +11,8 @@ export default class Card {
     this._cardSelector = cardSelector
     this._elementSelector = elementSelector
     this._handleCardClick = handleCardClick
-    this._api = api;
+    this._deleteLikeRemote = deleteLikeRemoteHandler;
+    this._setLikeRemote = setLikeRemoteHandler;
   }
 
   _getTemplate() {
@@ -27,12 +28,11 @@ export default class Card {
 
   _showUserLiked() {
     //найти свой id среди всех остальных если он есть отобразить, что лайк стоит
-    if (this._likes.forEach(user => {
-      if (user._id === window.userId) {
-        this._cardElement.querySelector('.element__button').classList.add('element__button_type_active')
-      }
-    })) {
-    }
+    this._likes.forEach(user => {
+        if (user._id === window.userId) {
+          this._cardElement.querySelector('.element__button').classList.add('element__button_type_active')
+        }
+      });
   }
 
   render() {
@@ -57,15 +57,16 @@ export default class Card {
     }
   }
 
+
   //add like or remove like
   _likeCard() {
 
     if (this._cardElement.querySelector('.element__button').classList.contains('element__button_type_active')) {
-      this._api.changeLikeCardStatus(this._el, "DELETE");
+      this._deleteLikeRemote();
       this._cardElement.querySelector('.like-counter').textContent--;
       if (this._cardElement.querySelector('.like-counter').textContent === "0") this._hideLikeCounter();
     } else {
-      this._api.changeLikeCardStatus(this._el, "PUT");
+      this._setLikeRemote();
       if (this._cardElement.querySelector('.like-counter').textContent === "0") this._showLikeCounter();
       this._cardElement.querySelector('.like-counter').textContent++;
     }
@@ -86,7 +87,6 @@ export default class Card {
   _checkDelete() {
     const popupDel = document.querySelector('.popup-chek-delete-card')
       .classList.add('popup_opened')
-
   }
 
   //delete card
@@ -108,4 +108,3 @@ export default class Card {
     this._cardElement.querySelector('.element__image').addEventListener('click', this._handleCardClick)
   }
 }
-

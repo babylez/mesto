@@ -39,8 +39,11 @@ function handleCardClick(name, link) {
   imagePopup.open(name, link)
 }
 
+const popupWithDelete = new PopupWithDelete(".popup-chek-delete-card")
+popupWithDelete.setEventListeners();
+
 function handleCardDelete(el, card) {
-  const popupWithDelete = new PopupWithDelete(".popup-chek-delete-card", () => {
+  const callback = () => {
     api.deleteCard(el).then(() => {
       card.deleteItem();
     })
@@ -49,19 +52,21 @@ function handleCardDelete(el, card) {
       }).then(() => {
         popupWithDelete.close()
       })
-  })
-  popupWithDelete.setEventListeners();
+  }
+  popupWithDelete.setCallBackSubmit(callback);
   popupWithDelete.open();
 }
 
 const popupAvatar = new PopupWithForm('.popup-profile-edit', (inputValues) => {
   const avatar = inputValues['avatar-title-input']
+  popupAvatar.setButtonText("Сохранение...");
   api.updateProfileAvatar(/*{ avatar: avatar }*/)
     .then((res) => {
       userInfo.setUserInfo(res.avatar)
+      popupAvatar.setButtonText("Сохранить");
     })
     .catch(err => {
-      console.log(`Ошибка ${err}`);
+      popupAvatar.setButtonText("Ошибка");;
     })
 })
 
@@ -82,8 +87,6 @@ validatorAvatar.enableValidation()
 validatorCard.enableValidation();
 validatorProfile.enableValidation();
 
-
-
 const section = new Section({
   items: [],
   renderer: (el) => {
@@ -95,6 +98,7 @@ const section = new Section({
 )
 
 api.getCards().then((res) => {
+  console.log(res);
   res.forEach(el => {
     section.addItem(el);
   })
@@ -111,7 +115,8 @@ function getSampleCard(el) {
     '#card-template',
     '.element',
     () => { handleCardClick(el.name, el.link) },
-    api
+    () => { api.changeLikeCardStatus(el, "DELETE") },
+    () => { api.changeLikeCardStatus(el, "PUT") }
   );
   card.setDeleteHandler(() => { handleCardDelete(el, card) });
   return card.render()
@@ -121,19 +126,19 @@ function getSampleCard(el) {
 const popupCard = new PopupWithForm('.popup_content_place', (inputValues) => {
   const text = inputValues['title-input'];
   const url = inputValues['link-input'];
-
+  popupCard.setButtonText("Создание...");
   api.addCard(text, url).then(res => {
     const newCard = getSampleCard(res);
     section.setNewItem(newCard);
+    popupCard.setButtonText("Создать");
   }).catch(err => {
-    console.log(`Ошибка ${err}`);
+    popupCard.setButtonText("Ошибка");;
   }).then(() => {
     popupCard.close()
   })
 
 }, '.form-card')
 popupCard.setEventListeners()
-
 //userinfo editing
 
 
@@ -141,18 +146,22 @@ popupCard.setEventListeners()
 const popupProfile = new PopupWithForm('.popup-profile', (inputValues) => {
   const name = inputValues['full-name-input']
   const about = inputValues['job-input']
+  popupProfile.setButtonText("Сохранение...");
   api.updateProfile({ name: name, about: about })
     .then(newData => {
       userInfo.setUserInfo(newData)
+      popupProfile.setButtonText("Сохранить");
     })
     .catch(err => {
-      console.log(`Ошибка ${err}`);
+      popupProfile.setButtonText("Ошибка");
     }).then(() => {
       popupProfile.close()
     })
 })
 
 popupProfile.setEventListeners();
+
+//document.querySelector('.popup__save-profile-edit').textContent = 'сохранение';
 
 //listeners popup
 buttonOpenPopupAddCard.addEventListener('click', () => {
