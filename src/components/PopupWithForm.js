@@ -31,7 +31,6 @@ class PopupWithForm extends Popup {
   _onSubmitForm(evt) {
     evt.preventDefault();
     this._callBackSubmit(this._getInputValues())
-    this.close();
   }
 
   close() {

@@ -29,10 +29,10 @@ export default class Card {
   _showUserLiked() {
     //найти свой id среди всех остальных если он есть отобразить, что лайк стоит
     this._likes.forEach(user => {
-        if (user._id === window.userId) {
-          this._cardElement.querySelector('.element__button').classList.add('element__button_type_active')
-        }
-      });
+      if (user._id === window.userId) {
+        this._cardElement.querySelector('.element__button').classList.add('element__button_type_active')
+      }
+    });
   }
 
   render() {
@@ -59,7 +59,8 @@ export default class Card {
 
 
   //add like or remove like
-  _likeCard() {
+  _likeCard() // честно вообще не понял, что надо сделать, вроде api запросы и так в index.js  выполняются
+  {
 
     if (this._cardElement.querySelector('.element__button').classList.contains('element__button_type_active')) {
       this._deleteLikeRemote();
