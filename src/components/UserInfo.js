@@ -28,7 +28,7 @@ export class UserInfo {
       window.userId = item._id;
     }
     if (item.avatar) {
-      this._userAvatar = item.avatar
+      this._userAvatar.src = item.avatar
     }
   }
 }

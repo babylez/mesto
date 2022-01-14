@@ -25,7 +25,6 @@ const userInfo = new UserInfo('.profile__fullname', '.profile__job', '.profile__
 
 api.getUserInfo()
   .then(res => {
-    console.log(res);
     userInfo.setUserInfo(res)
   })
   .catch(err => {
@@ -85,7 +84,6 @@ const section = new Section({
 )
 
 api.getCards().then((res) => {
-  console.log(res);
   res.forEach(el => {
     section.addItem(el);
   })
@@ -156,17 +154,25 @@ const popupProfile = new PopupWithForm('.popup-profile', (inputValues) => {
 })
 
 popupProfile.setEventListeners();
-
+/*я извяюсь, что опять сам не смог исправить и пишу с вопросом, 
+но тут же по аналогии с попапами профиля и создания карточки,
+  но там все работает, а тут почему то не отображается аватар,
+    хотя на сервер приходит, и в src тега автара тоже записывается ссылка,
+      через консоль смотрел, все в норме, а на странице картинка почему то не отображается */
 const popupAvatar = new PopupWithForm('.popup-profile-edit', (inputValues) => {
   const avatar = inputValues['avatar-title-input']
   popupAvatar.setButtonText("Сохранение...");
-  document.querySelector('.profile__avatar').src = avatar
   api.updateProfileAvatar({ avatar: avatar })
     .then(data => {
-      userInfo.setUserInfo(data.avatar)
+      userInfo.setUserInfo(data)
+
     })
     .then(() => {
+      // document.querySelector('.profile__avatar').src = data.avatar
+      console.log(avatar);
+      console.log(document.querySelector(".profile__avatar"))
       popupAvatar.close()
+
     })
     .catch(() => {
       popupAvatar.setButtonText("Ошибка");
@@ -175,8 +181,6 @@ const popupAvatar = new PopupWithForm('.popup-profile-edit', (inputValues) => {
 
 })
 popupAvatar.setEventListeners()
-
-//document.querySelector('.popup__save-profile-edit').textContent = 'сохранение';
 
 //listeners popup
 buttonOpenPopupAddCard.addEventListener('click', () => {
@@ -194,3 +198,6 @@ openPopupProfileButton.addEventListener('click', () => {
 })
 
 console.log(document.querySelector(".profile__avatar"))
+
+
+console.log(api.getUserInfo())

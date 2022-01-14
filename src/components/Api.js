@@ -30,7 +30,7 @@ export class Api {
             .then(this._checkAnswer)
     }
 
-    updateProfile({ name, about }) {
+    updateProfile({ name, about, avatar }) {
         return fetch(`${this._url}/users/me`, {
             method: "PATCH",
             headers: {
@@ -39,7 +39,8 @@ export class Api {
             },
             body: JSON.stringify({
                 name: name,
-                about: about
+                about: about,
+                avatar: avatar
             })
         })
             .then(this._checkAnswer)

@@ -57,13 +57,10 @@ export default class Card {
     }
   }
 
-
+  //this._deleteLikeRemote();
   //add like or remove like
-  _likeCard() // честно вообще не понял, что надо сделать, вроде api запросы и так в index.js  выполняются
-  {
-
+  likeCard() {
     if (this._cardElement.querySelector('.element__button').classList.contains('element__button_type_active')) {
-      this._deleteLikeRemote();
       this._cardElement.querySelector('.like-counter').textContent--;
       if (this._cardElement.querySelector('.like-counter').textContent === "0") this._hideLikeCounter();
     } else {
@@ -98,7 +95,7 @@ export default class Card {
   // listeners on like/delete
   _setEventListeners() {
     this._cardElement.querySelector('.element__button').addEventListener('click', () => {
-      this._likeCard()
+      this._deleteLikeRemote()
     })
 
     this._cardElement.querySelector('.element__delet').addEventListener('click', () => {
