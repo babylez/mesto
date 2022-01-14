@@ -154,12 +154,7 @@ const popupProfile = new PopupWithForm('.popup-profile', (inputValues) => {
 })
 
 popupProfile.setEventListeners();
-/*я извяюсь, что опять сам не смог исправить и пишу с вопросом, 
-но тут же по аналогии с попапами профиля и создания карточки,
-  но там все работает, а тут почему то не отображается аватар,
-    хотя на сервер приходит, и в src тега автара тоже записывается ссылка,
-      через консоль смотрел, все в норме, а на странице картинка почему то не отображается */
-//И спасибо за скорость проверки, это мое самое быстрое ревью было)
+
 const popupAvatar = new PopupWithForm('.popup-profile-edit', (inputValues) => {
   const avatar = inputValues['avatar-title-input']
   popupAvatar.setButtonText("Сохранение...");

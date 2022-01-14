@@ -64,7 +64,7 @@ export default class Card {
       this._cardElement.querySelector('.like-counter').textContent--;
       if (this._cardElement.querySelector('.like-counter').textContent === "0") this._hideLikeCounter();
     } else {
-      this._setLikeRemote();
+
       if (this._cardElement.querySelector('.like-counter').textContent === "0") this._showLikeCounter();
       this._cardElement.querySelector('.like-counter').textContent++;
     }
@@ -96,6 +96,9 @@ export default class Card {
   _setEventListeners() {
     this._cardElement.querySelector('.element__button').addEventListener('click', () => {
       this._deleteLikeRemote()
+    })
+    this._cardElement.querySelector('.element__button').addEventListener('click', () => {
+      this._setLikeRemote();
     })
 
     this._cardElement.querySelector('.element__delet').addEventListener('click', () => {
